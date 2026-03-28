@@ -3,13 +3,9 @@ FROM python:3.10-slim
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --prefer-binary --timeout=300 -r requirements.txt
 
 COPY main.py .
-
-# Артефакт модели монтируется через volume (см. docker-compose.yml)
-# Если хочешь запечь его в образ — раскомментируй строку ниже:
-# COPY scoring_artifact_v5.joblib .
 
 EXPOSE 8001
 
