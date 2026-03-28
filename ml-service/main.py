@@ -8,7 +8,7 @@ import os
 
 app = FastAPI(title="ML Scoring Service", version="5.0")
 
-# ── Загрузка артефакта при старте ──────────────────────────────────────────
+# Artificat(aka model) loading
 ARTIFACT_PATH = os.path.join(os.path.dirname(__file__), "scoring_artifact_v5.joblib")
 
 try:
